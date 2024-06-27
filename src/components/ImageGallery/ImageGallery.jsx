@@ -15,7 +15,7 @@ class ImageGallery extends Component {
   render() {
     const { images } = this.props;
     return (
-      <ul className={styles.gallery}>
+      <ul className={`${styles.gallery} js-gallery`}>
         {images.map(image => (
           <ImageGalleryItem key={image.id} image={image} />
         ))}

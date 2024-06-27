@@ -16,6 +16,21 @@ class ImageGalleryItem extends Component {
     showModal: false,
   };
 
+  componentDidUpdate(_prevProps, prevState) {
+    if (prevState.showModal !== this.state.showModal) {
+      const gallery = document.querySelector('.js-gallery');
+      if (!gallery) return;
+
+      if (this.state.showModal) {
+        console.log('Modal is noe shown');
+        gallery.style.pointerEvents = 'none';
+      } else {
+        console.log('Modal is now hidden');
+        gallery.style.pointerEvents = 'auto';
+      }
+    }
+  }
+
   toggleModal = () => {
     this.setState(prevState => ({
       showModal: !prevState.showModal,
